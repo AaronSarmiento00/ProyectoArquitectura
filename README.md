@@ -1,1 +1,2 @@
 # ProyectoArquitectura
+#easy qr code
