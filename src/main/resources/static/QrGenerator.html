@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Códigos QR para Productos</title>
+  <!-- Incluye la biblioteca QRious.js -->
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+  <style>
+    /* Estilos personalizados */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+    .product {
+      margin-bottom: 20px;
+    }
+    .product-name {
+      font-weight: bold;
+    }
+    .qr-code {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+<h1>Generador de Códigos QR para Productos</h1>
+
+<div class="container">
+  <div id="product-list"></div>
+</div>
+
+<script>
+  // Función para generar códigos QR para cada producto
+  function generateQRCode(product) {
+    const qrCodeDiv = document.createElement("div");
+    qrCodeDiv.classList.add("product");
+
+    // Nombre del producto
+    const productName = document.createElement("div");
+    productName.classList.add("product-name");
+    productName.textContent = product.name;
+
+    // Generar la cadena de texto para el código QR
+    const qrData = `Nombre: ${product.name}\nDescripción: ${product.description}\nPrecio: $${product.price}`;
+
+    // Generar el código QR
+    const qr = new QRious({
+      value: qrData,
+      size: 128,
+    });
+
+    // Crear una etiqueta de imagen para mostrar el código QR
+    const qrImage = document.createElement("img");
+    qrImage.src = qr.toDataURL(); // Convierte el código QR en una URL de datos de imagen
+
+    // Agregar el código QR y el nombre del producto al producto
+    qrCodeDiv.appendChild(productName);
+    qrCodeDiv.appendChild(qrImage);
+
+    // Agregar el código QR al contenedor de la lista de productos
+    document.getElementById("product-list").appendChild(qrCodeDiv);
+  }
+
+  // Realiza una solicitud fetch para obtener la lista de productos desde el backend
+  fetch('/api/product/all')  // Reemplaza '/api/products' con la URL correcta de tu endpoint de productos en Spring
+          .then(response => response.json())
+          .then(data => {
+            // Llama a la función para generar los códigos QR con los datos obtenidos
+            data.forEach(product => generateQRCode(product));
+          })
+          .catch(error => {
+            console.error('Error al obtener la lista de productos:', error);
+          });
+</script>
+</body>
+</html>
