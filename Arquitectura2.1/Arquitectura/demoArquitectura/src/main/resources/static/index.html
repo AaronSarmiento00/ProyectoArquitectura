@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+    <title>Tienda amorosa</title>
+    <!-- Incluye los archivos CSS de Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/menuStyle.css">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- Incluye MyScript.js -->
+    <script src="js/cartScript.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="https://i.ibb.co/kDVwgwp/logo.png" alt="RedStore" width="125px" /></a>
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="catalogo.html">Productos</a></li>
+                    <li><a href="QrGenerator.html">lista de qr</a></li>
+                    <li><a href="indexProduc.html">lista productos</a></li>
+                    <li><a href="qr.html">lector de qr</a></li>
+
+                </ul>
+            </nav>
+            <a href="Cart.html"><img src="https://i.ibb.co/PNjjx3y/cart.png" alt="" width="30px" height="30px" /></a>
+            <img src="https://i.ibb.co/6XbqwjD/menu.png" alt="" class="menu-icon" onclick="menutoggle()" />
+            <div class="dropleft">
+                <button class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
+                    <span class="fa fa-shopping-cart"></span>
+                    <div id="resultShow" class="badge">0</div>
+                    <div>₹<span id="totalPrice">0</span></div>
+
+                    <div class="dropdown-menu drop-items">
+                        <a class="dropdown-item"> cart empty </a>
+                    </div>
+
+                    <div>
+                        <button class="btn btn-warning ">clear cart</button>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="small-container">
+        <div class="row row-2">
+            <h2>Todos Los Productos</h2>
+            <select>
+                <option value="">busqueda prederterminada</option>
+                <option value="">menor precio</option>
+                <option value="">pupulares</option>
+                <option value="">mejor rankeados</option>
+                <option value="">Sofertas</option>
+            </select>
+        </div>
+
+
+        <div class="row">
+            <div class="col-4">
+                <img src="https://i.ibb.co/47Sk9QL/product-1.jpg" alt="" />
+                <h4>T-shirt roja</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="item-details">
+                    <h3 class="item-title"></h3>
+                    <div>Price : ₹<p class="item-price d-inline">300</p></div>
+                    Quantity x <span class="item-quantity">1</span>
+                </div>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+
+
+            <div class="col-4">
+                <img src="https://i.ibb.co/b7ZVzYr/product-2.jpg" alt="" />
+                <h4>zapatos negros</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="item-details">
+                    <h3 class="item-title"></h3>
+                    <div>Price : ₹<p class="item-price d-inline">300</p></div>
+                    Quantity x <span class="item-quantity">1</span>
+                </div>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+
+            <div class="col-4">
+                <img src="https://i.ibb.co/KsMVr26/product-3.jpg" alt="" />
+                <h4>pantalon deportivo</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="item-details">
+                    <h3 class="item-title"></h3>
+                    <div>Price : ₹<p class="item-price d-inline">300</p></div>
+                    Quantity x <span class="item-quantity">1</span>
+                </div>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+
+            <div class="col-4">
+                <img src="https://i.ibb.co/0cMfpcr/product-4.jpg" alt="" />
+                <h4>polo azul0</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="item-details">
+                    <h3 class="item-title"></h3>
+                    <div>Price : ₹<p class="item-price d-inline">300</p></div>
+                    Quantity x <span class="item-quantity">1</span>
+                </div>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <img src="https://i.ibb.co/47Sk9QL/product-1.jpg" alt="" />
+                <h4>Red Printed T-shirt</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="item-details">
+                    <h3 class="item-title"></h3>
+                    <div>Price : ₹<p class="item-price d-inline">300</p></div>
+                    Quantity x <span class="item-quantity">1</span>
+                </div>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+
+            <div class="col-4">
+                <img src="https://i.ibb.co/b7ZVzYr/product-2.jpg" alt="" />
+                <h4>Red Printed T-shirt</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="item-details">
+                    <h3 class="item-title"></h3>
+                    <div>Price : ₹<p class="item-price d-inline">300</p></div>
+                    Quantity x <span class="item-quantity">1</span>
+                </div>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+
+            <div class="col-4">
+                <img src="https://i.ibb.co/KsMVr26/product-3.jpg" alt="" />
+                <h4>Red Printed T-shirt</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="item-details">
+                    <h3 class="item-title"></h3>
+                    <div>Price : ₹<p class="item-price d-inline">300</p></div>
+                    Quantity x <span class="item-quantity">1</span>
+                </div>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+
+            <div class="col-4">
+                <img src="https://i.ibb.co/0cMfpcr/product-4.jpg" alt="" />
+                <h4>Red Printed T-shirt</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="item-details">
+                    <h3 class="item-title"></h3>
+                    <div>Price : ₹<p class="item-price d-inline">300</p></div>
+                    Quantity x <span class="item-quantity">1</span>
+                </div>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <img src="https://i.ibb.co/bQ5t8bR/product-5.jpg" alt="" />
+                <h4>Red Printed T-shirt</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p>₹500.00</p>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+
+            <div class="col-4">
+                <img src="https://i.ibb.co/vVpTyBD/product-6.jpg" alt="" />
+                <h4>Red Printed T-shirt</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="item-details">
+                    <h3 class="item-title"></h3>
+                    <div>Price : ₹<p class="item-price d-inline">300</p></div>
+                    Quantity x <span class="item-quantity">1</span>
+                </div>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+
+            <div class="col-4">
+                <img src="https://i.ibb.co/hR5FGwH/product-7.jpg" alt="" />
+                <h4>Red Printed T-shirt</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="item-details">
+                    <h3 class="item-title"></h3>
+                    <div>Price : ₹<p class="item-price d-inline">300</p></div>
+                    Quantity x <span class="item-quantity">1</span>
+                </div>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+
+            <div class="col-4">
+                <img src="https://i.ibb.co/QfCgdXZ/product-8.jpg" alt="" />
+                <h4>Red Printed T-shirt</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="item-details">
+                    <h3 class="item-title"></h3>
+                    <div>Price : ₹<p class="item-price d-inline">300</p></div>
+                    Quantity x <span class="item-quantity">1</span>
+                </div>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <img src="https://i.ibb.co/nw5xZwk/product-9.jpg" alt="" />
+                <h4>Red Printed T-shirt</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="item-details">
+                    <h3 class="item-title"></h3>
+                    <div>Price : ₹<p class="item-price d-inline">300</p></div>
+                    Quantity x <span class="item-quantity">1</span>
+                </div>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+
+            <div class="col-4">
+                <img src="https://i.ibb.co/9HCsmjf/product-10.jpg" alt="" />
+                <h4>Red Printed T-shirt</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="item-details">
+                    <h3 class="item-title"></h3>
+                    <div>Price : ₹<p class="item-price d-inline">300</p></div>
+                    Quantity x <span class="item-quantity">1</span>
+                </div>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+
+            <div class="col-4">
+                <img src="https://i.ibb.co/JQ2MBHR/product-11.jpg" alt="" />
+                <h4>Red Printed T-shirt</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="item-details">
+                    <h3 class="item-title"></h3>
+                    <div>Price : ₹<p class="item-price d-inline">300</p></div>
+                    Quantity x <span class="item-quantity">1</span>
+                </div>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+
+            <div class="col-4">
+                <img src="https://i.ibb.co/nRZMs6Y/product-12.jpg" alt="" />
+                <h4>Red Printed T-shirt</h4>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="item-details">
+                    <h3 class="item-title"></h3>
+                    <div>Price : ₹<p class="item-price d-inline">300</p></div>
+                    Quantity x <span class="item-quantity">1</span>
+                </div>
+                <button class="btn btn-primary"><i class="fa fa-plus"></i> </button>
+                <button class="btn btn-danger"><i class="fa fa-minus"></i> </button>
+            </div>
+        </div>
+
+
+            <div class="page-btn">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>&#8594;</span>
+            </div>
+
+
+    </div>
+
+</body>
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>descarga nuestra App</h3>
+                <p>disponible en adroid y en ios.</p>
+                <div class="app-logo">
+                    <img src="https://i.ibb.co/KbPTYYQ/play-store.png" alt="" />
+                    <img src="https://i.ibb.co/hVM4X2p/app-store.png" alt="" />
+                </div>
+            </div>
+
+            <div class="footer-col-2">
+                <img src="https://i.ibb.co/j3FNGj7/logo-white.png" alt="" />
+                <p>
+                    la mejor tienda en la palma de tu mano.
+                </p>
+            </div>
+
+            <div class="footer-col-3">
+                <h3>lo mejor en un solo lugar</h3>
+                <ul>
+                    <li>cuponmes</li>
+                    <li>Blog Post</li>
+                    <li>politicas reembolso</li>
+                    <li>afiliate</li>
+                </ul>
+            </div>
+
+            <div class="footer-col-4">
+                <h3>Follow us</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>YouTube</li>
+                </ul>
+            </div>
+        </div>
+        <hr />
+        <p class="copyright">Copyright &copy; 2023 - Red Store</p>
+    </div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+</html>
+
+<script>
+    var MenuItems = document.getElementById('MenuItems');
+    MenuItems.style.maxHeight = '0px';
+
+    function menutoggle() {
+        if (MenuItems.style.maxHeight == '0px') {
+            MenuItems.style.maxHeight = '200px';
+        } else {
+            MenuItems.style.maxHeight = '0px';
+        }
+    }
+</script>
